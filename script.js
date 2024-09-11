@@ -11,10 +11,10 @@ class linkedList {
   }
   appendNode(data) {
     let newNode = new listNode(data);
-    if (list.head === null) {
-      list.head = newNode;
+    if (this.head === null) {
+      this.head = newNode;
     } else {
-      let currentNode = list.head;
+      let currentNode = this.head;
       while (currentNode.next !== null) {
         currentNode = currentNode.next;
       }
@@ -23,15 +23,15 @@ class linkedList {
   }
   prependNode(data) {
     let newNode = new listNode(data);
-    if (list.head === null) {
-      list.head = newNode;
+    if (this.head === null) {
+      this.head = newNode;
     } else {
-      newNode.next = list.head;
-      list.head = newNode;
+      newNode.next = this.head;
+      this.head = newNode;
     }
   }
   displayNodes() {
-    let currentNode = list.head;
+    let currentNode = this.head;
     while (currentNode != null) {
       console.log(currentNode.data);
       currentNode = currentNode.next;
@@ -39,7 +39,7 @@ class linkedList {
   }
   size() {
     let count = 0;
-    let currentNode = list.head;
+    let currentNode = this.head;
     while (currentNode != null) {
       count++;
       currentNode = currentNode.next;
@@ -47,11 +47,11 @@ class linkedList {
     console.log(count);
   }
   first() {
-    let currentNode = list.head;
+    let currentNode = this.head;
     console.log(currentNode.data);
   }
   last() {
-    let currentNode = list.head;
+    let currentNode = this.head;
     while (currentNode.next != null) {
       currentNode = currentNode.next;
     }
@@ -59,23 +59,23 @@ class linkedList {
   }
   at(num) {
     let i = 0;
-    let currentNode = list.head;
+    let currentNode = this.head;
     while (i < num && currentNode.next != null) {
       currentNode = currentNode.next;
       i++;
     }
     if(i < num) {
-        console.log('the list is not this long')
+        console.log('the this is not this long')
     } else {
         console.log(currentNode.data)
     }
   }
   pop() {
-    if(list.head == null) {
-        return list.head;
+    if(this.head == null) {
+        return this.head;
     }
 
-    let currentNode = list.head;
+    let currentNode = this.head;
     let previousNode = null;
 
     while (currentNode.next != null){
@@ -86,7 +86,7 @@ class linkedList {
   }
 
   removePosition(position) {
-    let current = list.head;
+    let current = this.head;
     let previous = null;
     let count = 0;
 
@@ -96,14 +96,14 @@ class linkedList {
         count++;
     }
     if(current == null) {
-        console.log('the linked list is not this long')
+        console.log('the linked this is not this long')
         return
     }
     previous.next = current.next
   }
   containsValue(num) {
     num = parseInt(num);
-    let currentNode = list.head;
+    let currentNode = this.head;
     while(currentNode != null) {
         if(currentNode.data == num) {
             console.log('true')
@@ -114,7 +114,7 @@ class linkedList {
     console.log('false')
   }
   findValue(num) {
-    let currentNode = list.head;
+    let currentNode = this.head;
     let count = 0;
     while(currentNode != null) {
         if(currentNode.data == num) {
@@ -128,30 +128,30 @@ class linkedList {
     console.log('value not found')
   }
   toString() {
-    let currentNode = list.head;
-    let stringList = "";
+    let currentNode = this.head;
+    let stringthis = "";
     while (currentNode != null) {
-      stringList += `(${currentNode.data}) -> `;
+      stringthis += `(${currentNode.data}) -> `;
       currentNode= currentNode.next;
     }
-    console.log(`${stringList} (null)`);
+    console.log(`${stringthis} (null)`);
   }
 }
 
-let list = new linkedList();
+let linked = new linkedList();
 
-list.appendNode('dog');
-list.appendNode('cat');
-list.appendNode('rat');
-list.displayNodes()
-// list.size()
-// list.first()
-// list.last();
-// list.at(3);
-// list.displayNodes();
-// list.removePosition(1)
+linked.appendNode('dog');
+linked.appendNode('cat');
+linked.appendNode('rat');
+linked.displayNodes()
+// linked.size()
+// linked.first()
+// linked.last();
+// linked.at(3);
+// linked.displayNodes();
+// linked.removePosition(1)
 // console.log('----')
-// list.displayNodes();
-// list.containsValue(6)
-// list.containsValue(7)
-list.toString();
+// linked.displayNodes();
+// linked.containsValue(6)
+// linked.containsValue(7)
+linked.toString();
